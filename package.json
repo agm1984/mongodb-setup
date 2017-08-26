@@ -1,0 +1,24 @@
+{
+  "name": "mongodb-setup",
+  "version": "0.0.1",
+  "description": "MongoDB setup boilerplate for polyglot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agm1984/mongodb-setup.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "promise",
+    "polyglot"
+  ],
+  "author": "Adam Mackintosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agm1984/mongodb-setup/issues"
+  },
+  "homepage": "https://github.com/agm1984/mongodb-setup#readme"
+}
