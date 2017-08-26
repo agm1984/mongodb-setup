@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/agm1984/mongodb-setup/issues"
   },
-  "homepage": "https://github.com/agm1984/mongodb-setup#readme"
+  "homepage": "https://github.com/agm1984/mongodb-setup#readme",
+  "dependencies": {
+    "mongodb": "^2.2.31"
+  }
 }
