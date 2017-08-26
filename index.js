@@ -1,4 +1,4 @@
-const mongoUtil = require('./db/mongodb')
+const MongoDB = require('./db/mongodb')
 
 const seedUser = {
     name: 'Adam Testing',
@@ -6,7 +6,7 @@ const seedUser = {
     bonusSetting: true
 }
 
-mongoUtil.connectDB(async (err) => {
+MongoDB.connectDB(async (err) => {
     if (err) throw err
 
     // Load queries & mutations
@@ -30,4 +30,5 @@ mongoUtil.connectDB(async (err) => {
     //app.listen(3000, () => {
     //    console.log('Server started, etc.')
     //})
+    MongoDB.disconnectDB()
 })

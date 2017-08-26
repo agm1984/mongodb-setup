@@ -13,8 +13,8 @@ const connectDB = async (callback) => {
     }
 }
 
-const getDB = () => {
-    return _db
-}
+const getDB = () => _db
 
-module.exports = Object.assign({}, { connectDB, getDB })
+const disconnectDB = () => _db.close()
+
+module.exports = Object.assign({}, { connectDB, getDB, disconnectDB })
