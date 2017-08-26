@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient
-const uri = 'mongodb://user:password@localhost:27017/dbName'
+const uri = 'mongodb://mongodb:E1atHome@localhost:27017/PAC'
 let _db
 
 const connectDB = async (callback) => {
