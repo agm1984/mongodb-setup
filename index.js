@@ -15,7 +15,7 @@ MongoDB.connectDB(async (err) => {
     try {
         const newUser = await Users.createUser(seedUser)
         const listUsers = await Users.getUsers()
-        const findUser = await Users.findUserById('59a0e8d73fd732485824db2d')
+        const findUser = await Users.findUserById(newUser._id)
 
         console.log('CREATE USER')
         console.log(newUser)

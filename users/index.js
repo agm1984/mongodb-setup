@@ -23,9 +23,10 @@ const getUsers = async () => {
 
 const findUserById = async (id) => {
     try {
-        const results = await users.find(ObjectID(id)).toArray()
+        if (!ObjectID.isValid(id)) throw 'Invalid MongoDB ID.'
+        const results = await users.findOne(ObjectID(id))
         if (results[1]) throw 'MongoDB problem: More than one user found.'
-        return results[0]
+        return results
     } catch (error) {
         throw error
     }
