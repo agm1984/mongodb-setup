@@ -17,4 +17,4 @@ const getDB = () => _db
 
 const disconnectDB = () => _db.close()
 
-module.exports = Object.assign({}, { connectDB, getDB, disconnectDB })
+module.exports = { connectDB, getDB, disconnectDB }

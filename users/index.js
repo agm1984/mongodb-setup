@@ -1,9 +1,7 @@
 const ObjectID = require('mongodb').ObjectID
-const MongoDB = require('../db/mongodb')
-const db = MongoDB.getDB()
-const users = db.collection('users')
 
-const createUser = async (user) => {
+// Notice how the users collection is passed into the models
+const createUser = async (users, user) => {
     try {
         const results = await users.insertOne(user)
         return results.ops[0]
@@ -12,7 +10,7 @@ const createUser = async (user) => {
     }
 }
 
-const getUsers = async () => {
+const getUsers = async (users) => {
     try {
         const results = await users.find().toArray()
         return results
@@ -21,15 +19,28 @@ const getUsers = async () => {
     }
 }
 
-const findUserById = async (id) => {
+const findUserById = async (users, id) => {
     try {
         if (!ObjectID.isValid(id)) throw 'Invalid MongoDB ID.'
         const results = await users.findOne(ObjectID(id))
-        if (results[1]) throw 'MongoDB problem: More than one user found.'
         return results
     } catch (error) {
         throw error
     }
 }
 
-module.exports = Object.assign({}, { createUser, getUsers, findUserById })
+const findCommentById = async (users, userId, commentId) => {
+    try {
+        const results = await users.findOne({ _id: ObjectID(userId) }, {
+            comments: {
+                $elemMatch: { comment_id: commentId }
+            }
+        })
+        return results
+    } catch (error) {
+        throw error
+    }
+}
+
+// Export garbage as methods on the User object
+module.exports = { createUser, getUsers, findUserById, findCommentById }
